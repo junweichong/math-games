@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Games with Bad Coding | Inspired by Ben Orlin</title>
+    <meta name="description"
+        content="A collection of digital math games inspired by Ben Orlin's 'Math Games with Bad Drawings'. Explore Spatial and Number games.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="paper-texture"></div>
+    <div class="ben-orlin-sidebar">
+        <a href="https://mathwithbaddrawings.com/" target="_blank" class="ben-orlin-link hand-drawn">Link to Ben Orlin's
+            website</a>
+        <a href="https://mathgameswithbaddrawings.com/buy-the-book" target="_blank"
+            class="ben-orlin-link book-link hand-drawn">Buy his book</a>
+    </div>
+
+    <div class="book-sidebar">
+        <a href="https://mathgameswithbaddrawings.com/buy-the-book" target="_blank" class="book-image-link hand-drawn">
+            <img src="images/math games with bad drawings.jpg" alt="Math Games with Bad Drawings Book"
+                class="book-image">
+        </a>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1 id="main-title" class="hand-drawn">Math Games <span class="accent">with Bad Coding</span></h1>
+            <p class="subtitle">Digital adaptations of the brilliant games by <strong>Ben Orlin</strong>.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="menu-screen">
+            <section id="spatial-games" class="game-category">
+                <h2 class="hand-drawn">Spatial Games</h2>
+                <p class="category-desc">Games about shapes, patterns, and the beauty of geometry.</p>
+                <div class="game-grid" id="spatial-grid">
+                    <div class="game-card" data-game="dots-and-boxes">
+                        <div class="card-inner">
+                            <h3>Dots and Boxes</h3>
+                            <p>A classic spatial struggle. Close the squares, claim the field.</p>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="ultimate-tic-tac-toe">
+                        <div class="card-inner">
+                            <h3>Ultimate Tic-Tac-Toe</h3>
+                            <p>A game of meta-strategy. Win small boards to claim the big board!</p>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="dandelions">
+                        <div class="card-inner">
+                            <h3>Dandelions</h3>
+                            <p>A game of breezy expansion. Scatter your seeds across the garden.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="number-games" class="game-category">
+                <h2 class="hand-drawn">Number Games</h2>
+                <p class="category-desc">Games about logic, arithmetic, and numerical wizardry.</p>
+                <div class="game-grid" id="number-grid">
+                    <div class="game-card" data-game="sequencium">
+                        <div class="card-inner">
+                            <h3>Sequencium</h3>
+                            <p>Claim the numbers in sequence and outmaneuver your opponent.</p>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="prophecies">
+                        <div class="card-inner">
+                            <h3>Prophecies</h3>
+                            <p>Predict the future of each row and column. Will your prophecy come true?</p>
+                        </div>
+                    </div>
+                    <div class="game-card" data-game="pennywise">
+                        <div class="card-inner">
+                            <h3>Pennywise</h3>
+                            <p>Spend big, take back small. A game of numerical economics.</p>
+                        </div>
+                    </div>
+
+                    <div class="coming-soon">
+                        <p class="hand-drawn">More games coming soon...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="game-screen" class="hidden">
+            <button id="back-button" class="hand-drawn">← Back to Menu</button>
+            <button id="info-button" title="Instructions">i</button>
+            <div id="game-info">
+                <h2 id="game-title" class="hand-drawn"></h2>
+                <div id="score-board">
+                    <div class="player-score" id="p1-score-container">Player 1: <span id="p1-score">0</span></div>
+                    <div class="player-score" id="p2-score-container">Player 2: <span id="p2-score">0</span></div>
+                </div>
+                <p id="turn-indicator" class="hand-drawn">Player 1's Turn</p>
+            </div>
+
+            <div id="game-controls">
+                <div class="controls-main">
+                    <div class="player-selection">
+                        <div class="radio-group">
+                            <label class="radio-container">
+                                <input type="radio" name="player-count" value="1" checked>
+                                <span class="checkmark"></span>
+                                1 Player
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="player-count" value="2">
+                                <span class="checkmark"></span>
+                                2 Players
+                            </label>
+                        </div>
+                    </div>
+                    <div class="role-selection" id="role-selection">
+                        <div class="radio-group" id="role-options">
+                            <label class="radio-container">
+                                <input type="radio" name="player-role" value="1" checked>
+                                <span class="checkmark"></span>
+                                <span id="role-1-label">Player 1 (First)</span>
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="player-role" value="2">
+                                <span class="checkmark"></span>
+                                <span id="role-2-label">Player 2 (Second)</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button id="start-game-btn" class="hand-drawn">Start Game</button>
+                </div>
+            </div>
+
+            <div id="game-play-area">
+                <div id="game-board-container" class="locked">
+                    <!-- Game board will be injected here -->
+                </div>
+
+                <div id="modes-sidebar">
+                    <div id="modes-box">
+                        <h4 class="hand-drawn">Game Modes</h4>
+                        <div id="modes-list">
+                            <!-- Modes injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini Modal for Instructions -->
+            <div id="instructions-modal" class="hidden">
+                <div class="mini-modal-content">
+                    <button id="close-instructions">&times;</button>
+                    <h3 class="hand-drawn">How to Play</h3>
+                    <ul id="instructions-list">
+                        <!-- Instructions will be injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Based on the book <em>"Math Games with Bad Drawings"</em> by Ben Orlin.</p>
+        </div>
+    </footer>
+
+
+
+    <div id="game-over-overlay" class="hidden">
+        <div id="game-over-modal" class="modal-content">
+            <button id="view-board-btn" class="hand-drawn-btn eyeball-btn" title="View Board">
+                <svg viewBox="0 0 100 100">
+                    <path d="M 15 50 C 35 25, 65 25, 85 50 C 65 75, 35 75, 15 50 Z" stroke="currentColor"
+                        stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="50" cy="50" r="16" fill="currentColor" />
+                    <circle cx="44" cy="44" r="5" fill="white" />
+                </svg>
+            </button>
+            <h2 class="hand-drawn">Game Over!</h2>
+            <div id="winner-display">
+                <p id="winner-text" class="hand-drawn">Player 1 Wins!</p>
+            </div>
+            <div class="final-scores">
+                <p>Final Score: <span id="final-p1-score">0</span> - <span id="final-p2-score">0</span></p>
+            </div>
+            <div class="modal-footer vertical">
+                <button id="play-same-btn" class="hand-drawn">Play again with the <strong>same</strong> rules.</button>
+                <button id="play-diff-btn" class="hand-drawn">Play again with <strong>different</strong> rules.</button>
+                <button id="modal-menu-btn" class="hand-drawn">Main menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
