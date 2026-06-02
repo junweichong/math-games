@@ -47,12 +47,4 @@ An economic game of spending big to take back small.
 
 ---
 
-## ✨ Features
-- **Local Multiplayer**: Play with 2–6 players (human or AI).
-- **Multiple Game Modes**: Various board sizes and rule variations for each game.
-- **"Other-wise" Starting Sets**: Custom starting stashes for Pennywise.
-- **Hand-Drawn Aesthetic**: Inspired by the original book's charmingly "bad" drawings.
-
----
-
 *Based on the book **"Math Games with Bad Drawings"** by Ben Orlin.*
