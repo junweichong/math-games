@@ -70,15 +70,15 @@ body {
 
 .book-sidebar {
     position: absolute;
-    top: 100px;
-    right: 40px;
+    top: clamp(20px, 8vw, 100px);
+    right: clamp(10px, 3vw, 40px);
     transform: rotate(20deg);
     transform-origin: top right;
     z-index: 5000;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 200px;
+    width: clamp(80px, 15vw, 200px);
 }
 
 .book-image-link {
@@ -2231,8 +2231,7 @@ button.secondary:hover {
 /* Responsiveness for Sidebars */
 @media (max-width: 1450px) {
 
-    .ben-orlin-sidebar,
-    .book-sidebar {
+    .ben-orlin-sidebar {
         display: none;
     }
 }
